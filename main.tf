@@ -47,8 +47,8 @@ module "vm" {
   os_profile_linux_config = {
     disable_password_authentication = true
     ssh_keys = {
-      key_data = tls_private_key.vm_key.public_key_openssh
-      path     = "/home/mehul/.ssh/authorized_keys"
+      key_data = file("~/.ssh/id_rsa.pub")
+      path = "/home/azureuser/.ssh/authorized_keys"
     }
   }
   storage_image_reference = var.storage_image_reference
